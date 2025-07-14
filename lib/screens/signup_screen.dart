@@ -7,7 +7,10 @@ const borderGrey = BorderSide(color: Colors.grey);
 const borderRed = BorderSide(color: Colors.red);
 
 class SignupScreen extends StatelessWidget {
-  SignupScreenController signupScreenController = SignupScreenController();
+  final SignupScreenController signupScreenController =
+      SignupScreenController();
+
+  SignupScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -35,65 +38,69 @@ class SignupScreen extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: [
                   SizedBox(
-                      height: 150,
-                      child: Image.asset('assets/images/logo.png')),
-                  const SizedBox(
-                    height: 30,
+                    height: 150,
+                    child: Image.asset('assets/images/logo.png'),
                   ),
+                  const SizedBox(height: 30),
                   SizedBox(
                     height: 70,
                     child: TextField(
                       onChanged: (value) {
                         signupScreenController.name.value = value;
                       },
-                      style:
-                          const TextStyle(fontSize: 20.0, color: Colors.black),
-                      decoration: fieldDecoration('Nome', null )
+                      style: const TextStyle(
+                        fontSize: 20.0,
+                        color: Colors.black,
+                      ),
+                      decoration: fieldDecoration('Nome', null),
                     ),
                   ),
-                  const SizedBox(
-                    height: 5,
-                  ),
+                  const SizedBox(height: 5),
                   SizedBox(
                     height: 70,
                     child: TextField(
                       onChanged: (value) {
                         signupScreenController.email.value = value;
                       },
-                      style:
-                          const TextStyle(fontSize: 20.0, color: Colors.black),
-                      decoration: fieldDecoration('E-mail', null )
+                      style: const TextStyle(
+                        fontSize: 20.0,
+                        color: Colors.black,
+                      ),
+                      decoration: fieldDecoration('E-mail', null),
                     ),
                   ),
-                  const SizedBox(
-                    height: 5,
-                  ),
+                  const SizedBox(height: 5),
                   SizedBox(
                     height: 70,
                     child: TextField(
-                      style:
-                          const TextStyle(fontSize: 20.0, color: Colors.black),
+                      style: const TextStyle(
+                        fontSize: 20.0,
+                        color: Colors.black,
+                      ),
                       obscureText: true,
                       onChanged: (value) {
                         signupScreenController.password1.value = value;
                       },
-                      decoration: fieldDecoration('Senha', null )
+                      decoration: fieldDecoration('Senha', null),
                     ),
                   ),
-                  const SizedBox(
-                    height: 5,
-                  ),
+                  const SizedBox(height: 5),
                   SizedBox(
                     height: 70,
                     child: Obx(
                       () => TextField(
                         style: const TextStyle(
-                            fontSize: 20.0, color: Colors.black),
+                          fontSize: 20.0,
+                          color: Colors.black,
+                        ),
                         obscureText: true,
                         onChanged: (value) {
                           signupScreenController.password2.value = value;
                         },
-                        decoration: fieldDecoration("Confirmar senha", signupScreenController.password2ErrorMessage)                        
+                        decoration: fieldDecoration(
+                          "Confirmar senha",
+                          signupScreenController.password2ErrorMessage,
+                        ),
                       ),
                     ),
                   ),
@@ -101,8 +108,9 @@ class SignupScreen extends StatelessWidget {
                     height: 50,
                     child: TextButton(
                       style: TextButton.styleFrom(
-                          backgroundColor: Colors.red,
-                          disabledBackgroundColor: Colors.red.withAlpha(100)),
+                        backgroundColor: Colors.red,
+                        disabledBackgroundColor: Colors.red.withAlpha(100),
+                      ),
                       onPressed: signupScreenController.signupFunction,
                       child: const Text(
                         'CRIAR USUÁRIO',
@@ -116,16 +124,13 @@ class SignupScreen extends StatelessWidget {
                     },
                     child: const Text(
                       'Voltar para o login',
-                      style: TextStyle(
-                        color: Colors.red,
-                        fontSize: 15,
-                      ),
+                      style: TextStyle(color: Colors.red, fontSize: 15),
                     ),
                   ),
                 ],
               ),
             ),
-            const Row()
+            const Row(),
           ],
         ),
       ),
@@ -133,21 +138,14 @@ class SignupScreen extends StatelessWidget {
   }
 }
 
-InputDecoration fieldDecoration(String hintText, String? errorText ) {
+InputDecoration fieldDecoration(String hintText, String? errorText) {
   return InputDecoration(
     filled: true,
     fillColor: Colors.white,
     hintText: hintText,
     errorText: errorText,
-    hintStyle: const TextStyle(
-      fontSize: 20.0,
-      color: Color(0xFFbdc6cf),
-    ),
-    contentPadding: const EdgeInsets.only(
-      left: 14.0,
-      bottom: 8.0,
-      top: 8.0,
-    ),
+    hintStyle: const TextStyle(fontSize: 20.0, color: Color(0xFFbdc6cf)),
+    contentPadding: const EdgeInsets.only(left: 14.0, bottom: 8.0, top: 8.0),
     focusedBorder: OutlineInputBorder(
       borderSide: borderGrey,
       borderRadius: BorderRadius.circular(25.7),

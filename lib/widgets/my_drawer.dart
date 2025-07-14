@@ -68,6 +68,22 @@ class MyDrawer extends StatelessWidget {
               ),
             ),
           ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.end,
+            children: [
+              Obx(() {
+                if (loginScreenController.isLoggedIn) {
+                  return IconButton(
+                    icon: const Icon(Icons.logout),
+                    onPressed: loginScreenController.logout,
+                    color: Colors.red,
+                  );
+                } else {
+                  return Container();
+                }
+              }),
+            ],
+          ),
         ],
       ),
     );
